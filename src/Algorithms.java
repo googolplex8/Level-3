@@ -53,4 +53,7 @@ public class Algorithms {
 		}
 		return containsSOS;
 	}
+	//static Double sortScores(List<Double> scores){
+		//List <Double> inOrder = new List<Double>();
+	//}
 }
