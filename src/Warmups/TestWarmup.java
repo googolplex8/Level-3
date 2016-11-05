@@ -74,4 +74,40 @@ public class TestWarmup {
 		result2.add(9);		
 		assertEquals(thing.mulByLargest2(input2), result2);
 	}
+	@Test
+	public void testMode(){
+		ArrayList <Integer> input1 = new ArrayList<Integer>();
+		input1.add(1);
+		input1.add(2);
+		input1.add(6);
+		input1.add(3);
+		input1.add(3);
+		assertEquals(3, thing.mode(input1));
+		ArrayList <Integer> input2 = new ArrayList<Integer>();
+		assertEquals(thing.mode(input2), -1);	
+		ArrayList <Integer> input3 = new ArrayList<Integer>();
+		input3.add(2);
+		input3.add(3);
+		assertEquals(thing.mode(input3), 2);
+	}
+	@Test
+	public void testPartition(){
+		ArrayList <Integer> input1 = new ArrayList<Integer>();
+		input1.add(1);
+		input1.add(2);
+		input1.add(6);
+		input1.add(3);
+		input1.add(3);
+		ArrayList <Integer> expect1 = new ArrayList<Integer>();
+		expect1.add(6);
+		assertEquals(thing.partition(input1), expect1);
+		ArrayList <Integer> input2 = new ArrayList<Integer>();
+		assertEquals(thing.partition(input2), input2);	
+		ArrayList <Integer> input3 = new ArrayList<Integer>();
+		input3.add(2);
+		input3.add(3);
+		ArrayList <Integer> expect3 = new ArrayList<Integer>();
+		expect3.add(3);
+		assertEquals(thing.partition(input3), expect3);
+	}
 }

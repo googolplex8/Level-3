@@ -1,6 +1,7 @@
 package Warmups;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Warmup {
 	public int exclaimCount(String input) {
@@ -91,5 +92,41 @@ public class Warmup {
 
 		return answer;
 
+	}
+	public int mode(ArrayList <Integer> numbers){
+		HashMap <Integer, Integer> map = new HashMap<Integer, Integer>();
+		int most = 0;
+		int mode = -1;
+		for(int x: numbers){
+			if(map.containsKey(x)){
+			map.put(x, map.get(x)+1);
+			}
+			else{
+				map.put(x, 1);
+			}
+		}
+		for(int y: map.keySet()){
+			if(map.get(y)>most){
+				most = map.get(y);
+				mode = y;
+			}
+		}
+		return mode;
+	}
+	public ArrayList<Integer> partition(ArrayList <Integer> numbers){
+		ArrayList <Integer> higher = new ArrayList<Integer>();
+		double sum = 0;
+		int num = 0;
+		for(int x: numbers){
+			sum += x;
+			num+=1;
+		}
+		for(int x: numbers){
+			if(x>sum/num){
+				higher.add(x);
+			}
+		}
+		return higher;
+		
 	}
 }
