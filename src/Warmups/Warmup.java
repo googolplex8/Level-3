@@ -78,55 +78,88 @@ public class Warmup {
 
 	}
 
-	public ArrayList<Integer> mulByLargest2(ArrayList <Integer> input) {
-		ArrayList <Integer> answer = new ArrayList<Integer>();
+	public ArrayList<Integer> mulByLargest2(ArrayList<Integer> input) {
+		ArrayList<Integer> answer = new ArrayList<Integer>();
 		int largest = input.get(0);
-		for(int x : input){
+		for (int x : input) {
 			if (x > largest) {
 				largest = x;
 			}
 		}
 		for (int i = 0; i < input.size(); i++) {
-			answer.add(input.get(i)*3);
+			answer.add(input.get(i) * 3);
 		}
 
 		return answer;
 
 	}
-	public int mode(ArrayList <Integer> numbers){
-		HashMap <Integer, Integer> map = new HashMap<Integer, Integer>();
+
+	public int mode(ArrayList<Integer> numbers) {
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		int most = 0;
 		int mode = -1;
-		for(int x: numbers){
-			if(map.containsKey(x)){
-			map.put(x, map.get(x)+1);
-			}
-			else{
+		for (int x : numbers) {
+			if (map.containsKey(x)) {
+				map.put(x, map.get(x) + 1);
+			} else {
 				map.put(x, 1);
 			}
 		}
-		for(int y: map.keySet()){
-			if(map.get(y)>most){
+		for (int y : map.keySet()) {
+			if (map.get(y) > most) {
 				most = map.get(y);
 				mode = y;
 			}
 		}
 		return mode;
 	}
-	public ArrayList<Integer> partition(ArrayList <Integer> numbers){
-		ArrayList <Integer> higher = new ArrayList<Integer>();
+
+	public ArrayList<Integer> partition(ArrayList<Integer> numbers) {
+		ArrayList<Integer> higher = new ArrayList<Integer>();
 		double sum = 0;
 		int num = 0;
-		for(int x: numbers){
+		for (int x : numbers) {
 			sum += x;
-			num+=1;
+			num += 1;
 		}
-		for(int x: numbers){
-			if(x>sum/num){
+		for (int x : numbers) {
+			if (x > sum / num) {
 				higher.add(x);
 			}
 		}
 		return higher;
-		
+
+	}
+
+	public boolean hasRepeatedWord(ArrayList<String> input) {
+		HashMap map = new HashMap();
+		boolean isTrue = false;
+		for (String x : input) {
+			if (map.containsKey(x)) {
+				map.put(x, (int) map.get(x) + 1);
+			} else {
+				map.put(x, 1);
+			}
+		}
+		for (Object x : map.keySet()) {
+			if ((int) map.get(x) > 1) {
+				isTrue = true;
+			}
+		}
+		return isTrue;
+	}
+
+	public int getUniqueWords(ArrayList<String> input) {
+		int numUnique = 0;
+		HashMap map = new HashMap();
+		for (String x : input) {
+			if (map.containsKey(x)) {
+				map.put(x, (int) map.get(x) + 1);
+			} else {
+				map.put(x, 1);
+			}
+		}
+		numUnique = map.size();
+		return numUnique;
 	}
 }

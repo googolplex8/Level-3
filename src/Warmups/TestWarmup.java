@@ -110,4 +110,21 @@ public class TestWarmup {
 		expect3.add(3);
 		assertEquals(thing.partition(input3), expect3);
 	}
+	@Test
+	public void testListSearch(){
+		ArrayList <String> a1 = new ArrayList<String>();
+		a1.add("sheep");
+		a1.add("sheep");
+		a1.add("ox");
+		a1.add("goat");
+		a1.add("deer");
+		ArrayList <String> a2 = new ArrayList<String>();
+		a2.add("cat"); 	a2.add("dog"); 	a2.add("fish");
+		assertTrue(thing.hasRepeatedWord(a1));
+		assertFalse(thing.hasRepeatedWord(a2));
+		
+		assertEquals(4, thing.getUniqueWords(a1));
+		assertEquals(3, thing.getUniqueWords(a2));
+		
+	}
 }
