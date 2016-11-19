@@ -48,6 +48,8 @@ public class Hangman {
 			}
 			if(lives<1){
 				System.err.println("You Lose!!!");
+				System.out.println();
+				System.out.println("The word was: " + word);
 				System.exit(0);
 			}
 			if (Arrays.equals(charWord, blanks)) {
